@@ -1,32 +1,32 @@
 // author: winston-wen 
-// time: 2022.12.07 (三) 16:11:15
+// time: 2022.12.08 (四) 17:35:38
 // Compile me with "javac -h . MPC_HD_GG18_JavaBinding.java"
 
 class MPC_HD_GG18_JavaBinding {
     public static native void keygen(
-        String addr, 
-        String keysfile_path,
-        String params,
+        String manager_url, 
+        String keyfile,
+        String config,
         String code
     );
 
     public static native void sign(
-        String addr,
-        String keysfile_path,
-        String params,
+        String manager_url,
+        String keyfile,
+        String config,
         String message,
         String code,
-        String path
+        String derive
     );
 
     public static void sign(
-        String addr,
-        String keysfile_path,
-        String params,
+        String manager_url,
+        String keyfile,
+        String config,
         String message,
         String code
     ) {
-        sign(addr, keysfile_path, params, message, code, "");
+        sign(manager_url, keyfile, config, message, code, "");
     }
 
     public static String LIBRARY_PATH = null;
