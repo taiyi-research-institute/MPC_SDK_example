@@ -71,10 +71,10 @@ http://xxxxx:8008 keys3.store 1/3 40c00b17-82ad-429e-9f7d-be930471a191
 ```
 # terminal 1
 java MPC_HD_GG18_JavaBinding sign \
-http://xxxxx:8008 keys1.store 1/2/3 yetanothertext
+http://xxxxx:8008 keys1.store 1/2/3 yetanothertext 40c00b17-82ad-429e-9f7d-be930471a191
 
 # terminal 2
 java MPC_HD_GG18_JavaBinding sign \
-http://xxxxx:8008 keys3.store 1/2/3 yetanothertext
+http://xxxxx:8008 keys3.store 1/2/3 yetanothertext 40c00b17-82ad-429e-9f7d-be930471a191
 ```
 
