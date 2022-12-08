@@ -21,20 +21,26 @@
 
 例子:
 
-将以下三个命令分别执行在三个终端里. 这三个终端可以在三个不同的主机上.
+步骤1: 在 http://xxxxx:8008/swagger-ui/index.html 上申请一个code. 笔者申请到了
+
+```
+40c00b17-82ad-429e-9f7d-be930471a191
+```
+
+步骤2: 将以下三个命令分别执行在三个终端里. 这三个终端可以在三个不同的主机上.
 
 ```
 # terminal 1
 java MPC_HD_GG18_JavaBinding keygen \
-http://47.100.101.81:8008 keys1.store 1/3 1
+http://xxxxx:8008 keys1.store 1/3 40c00b17-82ad-429e-9f7d-be930471a191
 
 # terminal 2
 java MPC_HD_GG18_JavaBinding keygen \
-http://47.100.101.81:8008 keys2.store 1/3 1
+http://xxxxx:8008 keys2.store 1/3 40c00b17-82ad-429e-9f7d-be930471a191
 
 # terminal 3
 java MPC_HD_GG18_JavaBinding keygen \
-http://47.100.101.81:8008 keys3.store 1/3 1
+http://xxxxx:8008 keys3.store 1/3 40c00b17-82ad-429e-9f7d-be930471a191
 ```
 
 # sign
@@ -65,10 +71,10 @@ http://47.100.101.81:8008 keys3.store 1/3 1
 ```
 # terminal 1
 java MPC_HD_GG18_JavaBinding sign \
-http://47.100.101.81:8008 keys1.store 1/2/3 yetanothertext
+http://xxxxx:8008 keys1.store 1/2/3 yetanothertext
 
 # terminal 2
 java MPC_HD_GG18_JavaBinding sign \
-http://47.100.101.81:8008 keys3.store 1/2/3 yetanothertext
+http://xxxxx:8008 keys3.store 1/2/3 yetanothertext
 ```
 
