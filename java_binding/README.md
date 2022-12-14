@@ -1,3 +1,5 @@
+把库文件放到`main`类所在目录.
+
 # keygen
 
 原型: `public static native void keygen(String, String, String, String);`
