@@ -46,7 +46,7 @@
 | ---- | ----------- | ----------------------------------- |
 | string    | manager_url | 是MPC Manager (也叫MPC Server) 的http(s)链接. |
 | string    | keyshare | 是一个私钥分片内容 |
-| string    | config | 是参与方的配置, 格式为t/n. 其中t为门限, n为参与方数. 在签名阶段, 需要至少t+1名参与方才能完成签名. |
+| string    | config | 是签名参与方的配置, 格式为t/c/n. 意思是: 在t/n的keygen配置下(详见keygen函数的config参数), 选c个参与方进行签名. |
 | string    | message | 是待签名的文本 |
 | string    | code | 描述同keygen，但是需要另行申请 |
 | string    | path | （可选）是密钥衍生的路径, 默认为空字符串. |
