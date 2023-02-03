@@ -1,62 +1,14 @@
+/// 在release目录下载对应平台的node库，解压重命名后缀为.node放在当前目录下
+/// 先运行：node test.js
+/// 再另一个终端运行：node test2.js
+/// code说明参见java_samples/readme
+
 console.log(process.argv);
-var ffi = require('ffi-napi');
-var path = require('path');
-var lib = ffi.Library(path.join(__dirname, 'libmpc_hd_gg18.so'), {
-	    'keygen': [ 'void', ['string','string','string','string']],
-	    'sign': ['void', ['string','string','string','string','string','string']],
-	    'keygendun': [ 'void', ['string','string','string','string','string','string']],
-	    'keygendunnew': [ 'void', ['string','string','string','string','string','string']],
-	    'pubkey': [ 'void', ['string','string']],
-});
+var mpc = require('./mpc_hd_gg18');
 
-function sign(url, keyfile, config, message, code) {
-	    lib.sign(url, keyfile, config, message, code, '');
-}
+let code = "5b475de6-0bbc-410d-8e3f-86c58c93f23b";
+let phrase = "now enable indicate only flavor ball pink minute ritual october news stairs";
+manager_addr = "http://47.100.101.81:8008/"
 
-
-function keygendun(url, keyfile, config, code) {
-    lib.keygendun(url, keyfile, config, code, '', '');
-}
-function keygendun5(url, keyfile, config, code, phrase) {
-    lib.keygendun(url, keyfile, config, code, phrase, '');
-}
-
-
-function keygendunnew(url, keyfile, config, code) {
-    lib.keygendunnew(url, keyfile, config, code, '', '');
-}
-
-var cmd = process.argv[2];
-var args = process.argv.slice(3);
-if (cmd === 'keygen') {
-    lib.keygen(...args);
-}
-else if (cmd === 'sign') {
-    if (process.argv.length - 3 === 5) {
-        sign(...args);
-    } else {
-        lib.sign(...args);
-    }
-}
-else if (cmd === 'keygendunnew') {
-    if (process.argv.length - 3 === 4) {
-        keygendunnew(...args);
-    } else {
-        lib.keygendunnew(...args);
-    }
-}
-else if (cmd === 'keygendun') {
-    if (process.argv.length - 3 === 4) {
-        keygendun(...args);
-    } else if (process.argv.length - 3 === 5) {
-        keygendun5(...args);
-    } else {
-        lib.keygendun(...args);
-    }
-}
-else if (cmd === 'pubkey') {
-    lib.pubkey(...args);
-}
-else {
-    console.log(`Interface ${cmd} not yet supported.`);
-}
+let resp = mpc.mkeygen(manager_addr, "1/2", code, phrase, "");
+console.log(JSON.parse(resp))

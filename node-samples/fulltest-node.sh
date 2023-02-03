@@ -1,6 +1,6 @@
 #!/bin/bash
-##
-### a test script of full function.
+### depracated script. 
+### a test script of full function. 
 ##
 
 if [ $1x = locx ]; then
